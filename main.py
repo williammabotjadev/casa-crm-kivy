@@ -60,6 +60,12 @@ class CasaCRM(MDApp):
         # Register Screen
         register_screen = MDScreen()
         register_screen.name = "register"
+        # Top Bar 
+        top_bar_reg = MDToolbar()
+        top_bar_reg.title = 'Create an Account'
+        top_bar_reg.pos_hint = { 'top': 1 }
+        top_bar_reg.md_bg_color = (.32, .42, .68, 1)
+        register_screen.add_widget(top_bar_reg)
         sm.add_widget(register_screen)
         # Login Screen
         login_screen = MDScreen()
