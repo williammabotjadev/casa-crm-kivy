@@ -79,7 +79,7 @@ class CasaCRM(MDApp):
         email_field.helper_text = "Enter your email"
         email_field.mode = "fill"
         email_field.size_hint = 0.8, 0.1
-        email_field.pos_hint = {'center_x': 0.5, 'center_y': 0.8}
+        email_field.pos_hint = {'center_x': 0.5, 'center_y': 0.7}
         register_screen.add_widget(email_field)
         password_field = MDTextField()
         password_field.hint_text = "Enter Password"
@@ -87,7 +87,7 @@ class CasaCRM(MDApp):
         password_field.helper_text = "Enter Password"
         password_field.mode = "fill"
         password_field.size_hint = 0.8, 0.1
-        password_field.pos_hint = {'center_x': 0.5, 'center_y': 0.6}
+        password_field.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
         register_screen.add_widget(password_field)
         password_confirm_field = MDTextField()
         password_confirm_field.hint_text = "Confirm Password"
@@ -95,12 +95,12 @@ class CasaCRM(MDApp):
         password_confirm_field.helper_text = "Enter Password"
         password_confirm_field.mode = "fill"
         password_confirm_field.size_hint = 0.8, 0.1
-        password_confirm_field.pos_hint = {'center_x': 0.5, 'center_y': 0.4}
+        password_confirm_field.pos_hint = {'center_x': 0.5, 'center_y': 0.3}
         register_screen.add_widget(password_confirm_field)
         register_form_btn = RegisterFormButton()
         register_form_btn.text = "Register"
         register_form_btn.id = "register_user"
-        register_form_btn.pos_hint = {'center_x': 0.5, 'center_y': 0.2}
+        register_form_btn.pos_hint = {'center_x': 0.5, 'center_y': 0.1}
         register_form_btn.md_bg_color = (.32, .42, .68, 1)
         register_screen.add_widget(register_form_btn)
         sm.add_widget(register_screen)
