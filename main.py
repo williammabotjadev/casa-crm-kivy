@@ -7,8 +7,11 @@ from kivymd.uix.toolbar import MDToolbar
 from kivy.lang import Builder
 from kivymd.uix.card import MDCard
 
+class HomeButton(MDRaisedButton):
+    def on_touch_down(self, touch):
+        print("touched")
 
-class Example(MDApp):
+class CasaCRM(MDApp):
     data = {
         'Register',
         'Login'
@@ -23,12 +26,11 @@ class Example(MDApp):
         top_bar.md_bg_color = (.32, .42, .68, 1)
         screen.add_widget(top_bar)
         icon_btn = MDIconButton()
-        icon_btn.pos_hint = { 'center_x': 0.5, 'center_y': 0.8 }
-        icon_btn.type = 'image'
+        icon_btn.pos_hint = { 'center_x': 0.5, 'center_y': 0.6 }
         icon_btn.icon = 'images/landing.png'
         screen.add_widget(icon_btn)
         for text in self.data:
-            custom_btn = MDRaisedButton()
+            custom_btn = HomeButton()
             custom_btn.text = str(text)
             custom_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
             custom_btn.md_bg_color = (.32, .42, .68, 1)
@@ -37,4 +39,4 @@ class Example(MDApp):
         return screen
 
 
-Example().run()
+CasaCRM().run()
