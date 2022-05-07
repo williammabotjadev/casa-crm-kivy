@@ -9,7 +9,10 @@ from kivymd.uix.card import MDCard
 
 class HomeButton(MDRaisedButton):
     def on_touch_down(self, touch):
-        print("touched")
+        if self.text == 'Register':
+            print("Register Touched")
+        elif self.text == "Login":
+            print("Login Touched")
 
 class CasaCRM(MDApp):
     data = {
