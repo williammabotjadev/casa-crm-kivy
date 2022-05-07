@@ -31,7 +31,11 @@ class PasswordField(MDTextField):
     pass 
 
 class EyeButtonIcon(MDIconButton):
-    pass
+    def on_release(self):
+        if self.icon == "eye-off":
+            self.icon = "eye"
+        else:
+            self.icon = "eye-off"
 
 
 class CasaCRM(MDApp):
