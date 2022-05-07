@@ -87,6 +87,7 @@ class CasaCRM(MDApp):
         password_field.helper_text = "Enter Password"
         password_field.mode = "fill"
         password_field.size_hint = 0.8, 0.1
+        password_field.password = True
         password_field.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
         register_screen.add_widget(password_field)
         password_confirm_field = MDTextField()
@@ -95,6 +96,7 @@ class CasaCRM(MDApp):
         password_confirm_field.helper_text = "Enter Password"
         password_confirm_field.mode = "fill"
         password_confirm_field.size_hint = 0.8, 0.1
+        password_confirm_field.password = True
         password_confirm_field.pos_hint = {'center_x': 0.5, 'center_y': 0.3}
         register_screen.add_widget(password_confirm_field)
         register_form_btn = RegisterFormButton()
