@@ -1,4 +1,5 @@
 from kivymd.uix.screen import MDScreen
+from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
 from kivymd.uix.button import MDRaisedButton, MDIconButton
 from kivymd.uix.boxlayout import MDBoxLayout
@@ -20,6 +21,7 @@ class LoginButton(MDRaisedButton):
 class CasaCRM(MDApp):
 
     def build(self):
+        sm = ScreenManager()
         screen = MDScreen()
         pos_count = 0.4
         # Top Bar 
@@ -49,8 +51,8 @@ class CasaCRM(MDApp):
         login_btn.md_bg_color = (.32, .42, .68, 1)
         pos_count -= 0.1
         screen.add_widget(login_btn)       
-            
-        return screen
+        sm.add_widget(screen)
+        return sm
 
 
 CasaCRM().run()
