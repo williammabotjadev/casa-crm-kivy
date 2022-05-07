@@ -14,10 +14,10 @@ class Example(MDApp):
     def build(self):
         screen = MDScreen()
         pos_count = 0.5
-        banner = MDToolbar()
-        banner.text = 'Welcome to CasaCRM'
-        banner.pos_hint = { 'top': 1 }
-        screen.add_widget(banner)
+        top_bar = MDToolbar()
+        top_bar.title = 'Welcome to CasaCRM'
+        top_bar.pos_hint = { 'top': 1 }
+        screen.add_widget(top_bar)
         for text in self.data:
             custom_btn = MDRaisedButton()
             custom_btn.text = str(text)
