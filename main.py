@@ -27,6 +27,12 @@ class LoginButton(MDRaisedButton):
         if self.id == "login":
             self.parent.parent.current = "login"
 
+class PasswordField(MDTextField):
+    pass 
+
+class EyeButtonIcon(MDIconButton):
+    pass
+
 
 class CasaCRM(MDApp):
 
@@ -80,7 +86,7 @@ class CasaCRM(MDApp):
         email_field.size_hint = 0.8, 0.1
         email_field.pos_hint = {'center_x': 0.5, 'center_y': 0.7}
         register_screen.add_widget(email_field)
-        password_field = MDTextField()
+        password_field = PasswordField()
         password_field.hint_text = "Enter Password"
         password_field.helper_text = "Enter Password"
         password_field.mode = "fill"
@@ -88,7 +94,12 @@ class CasaCRM(MDApp):
         password_field.password = True
         password_field.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
         register_screen.add_widget(password_field)
-        password_confirm_field = MDTextField()
+        # Eye Icon - Password
+        eye_btn = EyeButtonIcon()
+        eye_btn.pos_hint = {'center_x': 0.85, 'center_y': 0.5}
+        eye_btn.icon = 'eye-off'
+        register_screen.add_widget(eye_btn)
+        password_confirm_field = PasswordField()
         password_confirm_field.hint_text = "Confirm Password"
         password_confirm_field.helper_text = "Enter Password"
         password_confirm_field.mode = "fill"
@@ -96,6 +107,11 @@ class CasaCRM(MDApp):
         password_confirm_field.password = True
         password_confirm_field.pos_hint = {'center_x': 0.5, 'center_y': 0.3}
         register_screen.add_widget(password_confirm_field)
+        # Eye Icon - Confirm Password
+        eye_btn_confirm = EyeButtonIcon()
+        eye_btn_confirm.pos_hint = {'center_x': 0.85, 'center_y': 0.3}
+        eye_btn_confirm.icon = 'eye-off'
+        register_screen.add_widget(eye_btn_confirm)
         register_form_btn = RegisterFormButton()
         register_form_btn.text = "Register"
         register_form_btn.id = "register_user"
