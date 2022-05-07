@@ -7,18 +7,15 @@ from kivymd.uix.toolbar import MDToolbar
 from kivy.lang import Builder
 from kivymd.uix.card import MDCard
 
-class HomeButton(MDRaisedButton):
+class RegisterButton(MDRaisedButton):
     def on_touch_down(self, touch):
-        if self.text == 'Register':
-            print("Register Touched")
-        elif self.text == "Login":
-            print("Login Touched")
+        print(f"You touch down on {self.text}")
+
+class LoginButton(MDRaisedButton):
+    def on_touch_down(self, touch):
+        print(f"You touch down on {self.text}")
 
 class CasaCRM(MDApp):
-    data = {
-        'Register',
-        'Login'
-    }
 
     def build(self):
         screen = MDScreen()
@@ -32,13 +29,21 @@ class CasaCRM(MDApp):
         icon_btn.pos_hint = { 'center_x': 0.5, 'center_y': 0.6 }
         icon_btn.icon = 'images/landing.png'
         screen.add_widget(icon_btn)
-        for text in self.data:
-            custom_btn = HomeButton()
-            custom_btn.text = str(text)
-            custom_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
-            custom_btn.md_bg_color = (.32, .42, .68, 1)
-            pos_count -= 0.1
-            screen.add_widget(custom_btn)
+        # Registration Button
+        register_btn = RegisterButton()
+        register_btn.text = "Register"
+        register_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
+        register_btn.md_bg_color = (.32, .42, .68, 1)
+        pos_count -= 0.1
+        screen.add_widget(register_btn)
+        # Login Button
+        login_btn = LoginButton()
+        login_btn.text = "Login"
+        login_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
+        login_btn.md_bg_color = (.32, .42, .68, 1)
+        pos_count -= 0.1
+        screen.add_widget(login_btn)       
+            
         return screen
 
 
