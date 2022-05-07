@@ -10,6 +10,7 @@ from kivymd.uix.banner import MDBanner
 from kivymd.uix.toolbar import MDToolbar
 from kivy.lang import Builder
 from kivymd.uix.card import MDCard
+from kivymd.uix.textfield import MDTextField
 
 class RegisterButton(MDRaisedButton):
     def on_press(self):
@@ -66,11 +67,36 @@ class CasaCRM(MDApp):
         top_bar_reg.pos_hint = { 'top': 1 }
         top_bar_reg.md_bg_color = (.32, .42, .68, 1)
         register_screen.add_widget(top_bar_reg)
+        # Form - Registration
+        email_field = MDTextField()
+        email_field.hint_text = "Email"
+        email_field.text = "Email Address"
+        email_field.helper_text = "Enter your email"
+        email_field.mode = "fill"
+        register_screen.add_widget(email_field)
+        username_field = MDTextField()
+        username_field.hint_text = "Email"
+        username_field.text = "Email Address"
+        username_field.helper_text = "Enter your email"
+        username_field.mode = "fill"
+        register_screen.add_widget(username_field)
+        password_field = MDTextField()
+        password_field.hint_text = "Email"
+        password_field.text = "Email Address"
+        password_field.helper_text = "Enter your email"
+        password_field.mode = "fill"
+        register_screen.add_widget(password_field)
+        password_confirm_field = MDTextField()
+        password_confirm_field.hint_text = "Email"
+        password_confirm_field.text = "Email Address"
+        password_confirm_field.helper_text = "Enter your email"
+        password_confirm_field.mode = "fill"
+        register_screen.add_widget(password_confirm_field)
         sm.add_widget(register_screen)
         # Login Screen
         login_screen = MDScreen()
         login_screen.name = "login"
-        # Top Bar - Registration
+        # Top Bar - Login
         top_bar_login = MDToolbar()
         top_bar_login.title = 'Login'
         top_bar_login.pos_hint = { 'top': 1 }
