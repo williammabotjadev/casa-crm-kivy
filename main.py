@@ -1,37 +1,24 @@
-from kivy.uix.modalview import ModalView
-from kivy.lang import Builder
-
-from kivymd import images_path
+from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
-from kivymd.uix.card import MDCard
-
-Builder.load_string(
-    '''
-<Card>:
-    elevation: 10
-    radius: [36, ]
-
-    FitImage:
-        id: bg_image
-        source: "images/landing.png"
-        size_hint_y: .35
-        pos_hint: {"top": 1}
-''')
-
-
-class Card(MDCard):
-    pass
+from kivymd.uix.button import MDRaisedButton
 
 
 class Example(MDApp):
+    data = {
+        'Register',
+        'Login'
+    }
+
     def build(self):
-        modal = ModalView(
-            size_hint=(0.4, 0.8),
-            background=f"{images_path}/transparent.png",
-            overlay_color=(0, 0, 0, 0),
-        )
-        modal.add_widget(Card())
-        modal.open()
+        screen = MDScreen()
+        pos_count = 0.5
+        for text in self.data:
+            custom_btn = MDRaisedButton()
+            custom_btn.text = str(text)
+            custom_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
+            pos_count += 0.1
+            screen.add_widget(custom_btn)
+        return screen
 
 
 Example().run()
