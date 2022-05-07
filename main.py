@@ -13,10 +13,9 @@ Builder.load_string(
 
     FitImage:
         id: bg_image
-        source: "images/bg.png"
+        source: "images/landing.png"
         size_hint_y: .35
         pos_hint: {"top": 1}
-        radius: 36, 36, 0, 0
 ''')
 
 
