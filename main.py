@@ -1,3 +1,6 @@
+from atexit import register
+from kivy.config import Config
+Config.set('kivy','keyboard_mode','systemanddock')
 from kivymd.uix.screen import MDScreen
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -11,12 +14,13 @@ from kivymd.uix.card import MDCard
 class RegisterButton(MDRaisedButton):
     def on_press(self):
         if self.id == "register":
-            print(f"Register button pressed")
+            self.parent.parent.current = "register"
 
 class LoginButton(MDRaisedButton):
     def on_press(self):
         if self.id == "login":
-            print(f"You touch down on {self.text}")
+            self.parent.parent.current = "login"
+
 
 class CasaCRM(MDApp):
 
@@ -50,8 +54,17 @@ class CasaCRM(MDApp):
         login_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
         login_btn.md_bg_color = (.32, .42, .68, 1)
         pos_count -= 0.1
-        screen.add_widget(login_btn)       
+        screen.add_widget(login_btn)
+        screen.name = "home"       
         sm.add_widget(screen)
+        # Register Screen
+        register_screen = MDScreen()
+        register_screen.name = "register"
+        sm.add_widget(register_screen)
+        # Login Screen
+        login_screen = MDScreen()
+        login_screen.name = "login"
+        sm.add_widget(login_screen)
         return sm
 
 
