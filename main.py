@@ -17,6 +17,11 @@ class RegisterButton(MDRaisedButton):
         if self.id == "register":
             self.parent.parent.current = "register"
 
+class RegisterFormButton(MDRaisedButton):
+    def on_press(self):
+        if self.id == "register_user":
+            print("Registered User")
+
 class LoginButton(MDRaisedButton):
     def on_press(self):
         if self.id == "login":
@@ -73,26 +78,30 @@ class CasaCRM(MDApp):
         email_field.text = "Email Address"
         email_field.helper_text = "Enter your email"
         email_field.mode = "fill"
+        email_field.pos_hint = {'center_x': 0.5, 'center_y': 0.8}
         register_screen.add_widget(email_field)
-        username_field = MDTextField()
-        username_field.hint_text = "Email"
-        username_field.text = "Email Address"
-        username_field.helper_text = "Enter your email"
-        username_field.mode = "fill"
-        register_screen.add_widget(username_field)
         password_field = MDTextField()
-        password_field.hint_text = "Email"
-        password_field.text = "Email Address"
-        password_field.helper_text = "Enter your email"
+        password_field.hint_text = "Enter Password"
+        password_field.text = "Password"
+        password_field.helper_text = "Enter Password"
         password_field.mode = "fill"
+        password_field.pos_hint = {'center_x': 0.5, 'center_y': 0.6}
         register_screen.add_widget(password_field)
         password_confirm_field = MDTextField()
-        password_confirm_field.hint_text = "Email"
-        password_confirm_field.text = "Email Address"
-        password_confirm_field.helper_text = "Enter your email"
+        password_confirm_field.hint_text = "Confirm Password"
+        password_confirm_field.text = "Password"
+        password_confirm_field.helper_text = "Enter Password"
         password_confirm_field.mode = "fill"
+        password_confirm_field.pos_hint = {'center_x': 0.5, 'center_y': 0.4}
         register_screen.add_widget(password_confirm_field)
+        register_form_btn = RegisterFormButton()
+        register_form_btn.text = "Register"
+        register_form_btn.id = "register_user"
+        register_form_btn.pos_hint = {'center_x': 0.5, 'center_y': 0.2}
+        register_form_btn.md_bg_color = (.32, .42, .68, 1)
+        register_screen.add_widget(register_form_btn)
         sm.add_widget(register_screen)
+
         # Login Screen
         login_screen = MDScreen()
         login_screen.name = "login"
