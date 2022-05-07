@@ -17,11 +17,13 @@ class Example(MDApp):
         top_bar = MDToolbar()
         top_bar.title = 'Welcome to CasaCRM'
         top_bar.pos_hint = { 'top': 1 }
+        top_bar.md_bg_color = (.32, .42, .68, 1)
         screen.add_widget(top_bar)
         for text in self.data:
             custom_btn = MDRaisedButton()
             custom_btn.text = str(text)
             custom_btn.pos_hint = {'center_x': 0.5, 'center_y': pos_count}
+            custom_btn.md_bg_color = (.32, .42, .68, 1)
             pos_count += 0.1
             screen.add_widget(custom_btn)
         return screen
