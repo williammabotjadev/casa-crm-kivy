@@ -27,6 +27,11 @@ class LoginButton(MDRaisedButton):
         if self.id == "login":
             self.parent.parent.current = "login"
 
+class LoginFormButton(MDRaisedButton):
+    def on_press(self):
+        if self.id == "login_user":
+            print("Logged In")
+
 class PasswordField(MDTextField):
     pass 
 
@@ -45,10 +50,10 @@ class EyeButtonLoginIcon(MDIconButton):
     def on_release(self):
         if self.icon == "eye-off":
             self.icon = "eye"
-            self.parent.children[1].password = False
+            self.parent.children[2].password = False
         else:
             self.icon = "eye-off"
-            self.parent.children[1].password = True
+            self.parent.children[2].password = True
        
 
 
@@ -170,6 +175,12 @@ class CasaCRM(MDApp):
         eye_btn_login.pos_hint = {'center_x': 0.85, 'center_y': 0.5}
         eye_btn_login.icon = 'eye-off'
         login_screen.add_widget(eye_btn_login)
+        login_form_btn = LoginFormButton()
+        login_form_btn.text = "Login"
+        login_form_btn.id = "login_user"
+        login_form_btn.pos_hint = {'center_x': 0.5, 'center_y': 0.3}
+        login_form_btn.md_bg_color = (.32, .42, .68, 1)
+        login_screen.add_widget(login_form_btn)
         sm.add_widget(login_screen)
         return sm
 
