@@ -34,8 +34,15 @@ class EyeButtonIcon(MDIconButton):
     def on_release(self):
         if self.icon == "eye-off":
             self.icon = "eye"
+            self.parent.children[4].password = False
+            self.parent.children[2].password = False
         else:
             self.icon = "eye-off"
+            self.parent.children[4].password = True
+            self.parent.children[2].password = True
+          
+        
+       
 
 
 class CasaCRM(MDApp):
@@ -91,6 +98,7 @@ class CasaCRM(MDApp):
         email_field.pos_hint = {'center_x': 0.5, 'center_y': 0.7}
         register_screen.add_widget(email_field)
         password_field = PasswordField()
+        password_field.id = "password"
         password_field.hint_text = "Enter Password"
         password_field.helper_text = "Enter Password"
         password_field.mode = "fill"
@@ -104,6 +112,7 @@ class CasaCRM(MDApp):
         eye_btn.icon = 'eye-off'
         register_screen.add_widget(eye_btn)
         password_confirm_field = PasswordField()
+        password_confirm_field.id = "password_confirm"
         password_confirm_field.hint_text = "Confirm Password"
         password_confirm_field.helper_text = "Enter Password"
         password_confirm_field.mode = "fill"
