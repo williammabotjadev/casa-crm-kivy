@@ -41,7 +41,14 @@ class EyeButtonIcon(MDIconButton):
             self.parent.children[4].password = True
             self.parent.children[2].password = True
           
-        
+class EyeButtonLoginIcon(MDIconButton):
+    def on_release(self):
+        if self.icon == "eye-off":
+            self.icon = "eye"
+            self.parent.children[1].password = False
+        else:
+            self.icon = "eye-off"
+            self.parent.children[1].password = True
        
 
 
@@ -142,6 +149,27 @@ class CasaCRM(MDApp):
         top_bar_login.pos_hint = { 'top': 1 }
         top_bar_login.md_bg_color = (.32, .42, .68, 1)
         login_screen.add_widget(top_bar_login)
+        # Form - Login
+        email_field_login = MDTextField()
+        email_field_login.hint_text = "Email"
+        email_field_login.helper_text = "Enter your email"
+        email_field_login.mode = "fill"
+        email_field_login.size_hint = 0.8, 0.1
+        email_field_login.pos_hint = {'center_x': 0.5, 'center_y': 0.7}
+        login_screen.add_widget(email_field_login)
+        password_login = PasswordField()
+        password_login.hint_text = "Password"
+        password_login.helper_text = "Enter your Password"
+        password_login.mode = "fill"
+        password_login.size_hint = 0.8, 0.1
+        password_login.password = True
+        password_login.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
+        login_screen.add_widget(password_login)
+        # Eye Icon - Login Password
+        eye_btn_login = EyeButtonLoginIcon()
+        eye_btn_login.pos_hint = {'center_x': 0.85, 'center_y': 0.5}
+        eye_btn_login.icon = 'eye-off'
+        login_screen.add_widget(eye_btn_login)
         sm.add_widget(login_screen)
         return sm
 
